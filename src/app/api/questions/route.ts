@@ -15,20 +15,22 @@ export const POST = async (req: Request, res: Response) => {
     } = questionInputSchema.parse(body);
 
     const questions = await strict_output(
-      `You are a helpful AI that is able to generate a pair of questions and answers, the length of the answer should not exceed 50 words`,
+      `You are a helpful AI that is able to generate a pair of questions and answers, the length of the answer should not exceed 50 words. Store the pair of question and answers in a JSON arra`,
       new Array(numberOfQuestions).fill(
-        `Find a loophole or missing keypoint not addressed in this content: ${content}. Generate a question from it.`
+        `You are to generate a random hard open-ended question about ${content}. Find loopholes and unaddressed keypoints in the content.`
       ),
       {
         question: "question",
-        answer: "possible answer to question with max length of 50 words",
+        answer: "possible answer to question with max length of 20 words",
       }
     );
 
-    return NextResponse.json({
-        questions
-    }, {status: 200})
-
+    return NextResponse.json(
+      {
+        questions,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
