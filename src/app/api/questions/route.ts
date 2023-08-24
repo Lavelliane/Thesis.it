@@ -15,17 +15,13 @@ export const POST = async (req: Request, res: Response) => {
     } = questionInputSchema.parse(body);
 
     const questions = await strict_output(
-      `You are an AI that can simulate a panel defense in the academe. You are able to generate a pair of questions and answers. The length of the answer should not exceed 100 words. Store the pair of question and answers in a JSON array`,
+      `You are a helpful AI that is able to generate a pair of questions and answers, the length of the answer should not exceed 50 words`,
       new Array(numberOfQuestions).fill(
-        `Generate questions based on the following research paper section using this content: ${content}
-        Additional details about this are the following:
-        Research Paper Section: ${section}
-        Additional Context: ${additionalContext}
-        Question style: ${questionStyle}`
+        `Find a loophole or missing keypoint not addressed in this content: ${content}. Generate a question from it.`
       ),
       {
         question: "question",
-        answer: "detailed and comprehensive answer with max length of 60 words",
+        answer: "possible answer to question with max length of 50 words",
       }
     );
 
