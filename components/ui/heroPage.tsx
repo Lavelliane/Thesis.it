@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { DiscordLogoIcon, LinkedInLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function HeroPage() {
 	const [show, setShow] = useState(false);
@@ -22,25 +23,34 @@ export default function HeroPage() {
 						</a>
 					</div>
 					<div className='flex flex-col w-full h-full items-center justify-center md:p-0 p-4'>
-						<div className='flex w-full items-center justify-center'>
+						<div className='flex w-fit h-fit items-center justify-center md:scale-100 sm:scale-75 scale-[50%] absolute -translate-y-12'>
 							<Image
-								className='md:scale-100 sm:scale-75 scale-50'
+								className=' h-fit w-fit'
 								src={'/assets/sprites/logo-white.png'}
 								width={60}
 								height={60}
 								alt='logo'
 							/>
-							<h1 className='md:text-[78px] sm:text-[58px] text-[39px] md:translate-x-0 sm:-translate-x-2 -translate-x-4 font-bold select-none tracking-normal'>
+							<div className='w-full'>
+								<TypeAnimation
+									sequence={['hesis.it', 7000, '', 200, 'his\u00a0is\u00a0it', 7000, '', 200]}
+									wrapper='span'
+									speed={50}
+									repeat={Infinity}
+									style={{ fontWeight: 'bold', fontSize: '78px' }}
+								/>
+							</div>
+							{/* <h1 className='md:text-[78px] sm:text-[58px] text-[39px] md:translate-x-0 sm:-translate-x-2 -translate-x-4 font-bold select-none tracking-normal'>
 								hesis.it
-							</h1>
+							</h1> */}
 						</div>
-						<p className='md:text-lg sm:text-base text-sm font-normal text-center select-none'>
+						<p className='md:text-lg sm:text-base text-sm font-normal text-center select-none mt-28'>
 							Elevate your presentation and excel in your academic journey.
 						</p>
 						<div className='flex sm:flex-row flex-col gap-4 w-full items-center justify-center mt-6 sm:text-lg	 text-sm'>
 							<a
 								href='sign-up'
-								className='w-fit h-fit px-4 py-2 border border-white rounded-full bg-white text-slate-600 font-bold hover:bg-transparent hover:text-white transition-colors select-none'
+								className='w-fit h-fit px-4 py-2 border border-white rounded-full bg-white text-slate-900 font-bold hover:bg-transparent hover:text-white transition-colors select-none'
 							>
 								Get Started
 							</a>
