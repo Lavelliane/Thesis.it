@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,4 +74,75 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.cl-internal-1fsg6zy {
+  background-color: #f6ce39;
+}
+.cl-internal-1fsg6zy:hover {
+  background-color: #eeda90;
+}
+
+.cl-internal-b3fm6y {
+  display: none;
+}
+
+.cl-internal-15amzqo{
+  color: #f6ce39;
+}
+
+.cl-internal-15amzqo:hover{
+  color: #eeda90;
+}
+
+::-webkit-scrollbar {
+  width: 3px; /* Adjust this value for the scrollbar width */
+  height: 10px;
+ 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f8f9fb; /* Replace with your desired color */
+  border-radius: 40px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Replace with your desired color */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.bg-animate {
+  background: radial-gradient( #473d15 , #0C0D0F );
+	/* background: linear-gradient(-45deg, #0C0D0F, #323232, #473d15); */
+	background-size: 300% 300%;
+	animation: gradient 40s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 50% 50%;
+	}
+  25%{
+    background-position: 0% 100%;
+  }
+	50% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 50% 50%;
+	}
 }
